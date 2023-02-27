@@ -1,0 +1,77 @@
+package project1;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class strt {
+
+	public static void main(String[] args) {
+		 // Random Valid Phone Number |
+		
+		//9 numbers:XXX-XXX-XXX
+		//the fisrt 3 cannot contain 8 or 9
+		//the second set is no greather than 742
+		
+		int v[] = new int[9];
+		
+		for(int i = 0;i < 9;i++){
+			//
+			if(i < 3){
+				int num;
+				while(true){
+					Random x = new Random();
+					int r = x.nextInt(9);
+					if(r != 8 && r != 9){
+						num = r;
+						break;
+					}
+				}
+				v[i] = num;
+			}
+			//
+			if(i ==3){
+				int prim,sec,ter;
+				while(true){
+					Random k = new Random();
+					int a = k.nextInt(9);
+					Random m = new Random();
+					int b = m.nextInt(9);
+					Random n = new Random();
+					int c = n.nextInt(9);
+					if((a*(100)+b*(10) + c) < 742){
+						prim = a;
+						sec = b;
+						ter = c;
+						break;
+					}
+				}
+				v[i] = prim;
+				v[i+1] = sec;
+				v[i+2] = ter;										
+			}
+			//
+			else if(i > 6 && i < 9){
+				Random n = new Random();
+				v[i] = n.nextInt(9);
+			}
+		}
+		
+		for(int i = 0;i < 3;i++){
+			System.out.print(v[i]);
+		}
+		System.out.print("-");
+		for(int i = 3;i < 6;i++){
+			System.out.print(v[i]);
+		}
+		System.out.print("-");
+		for(int i = 6;i < 9;i++){
+			System.out.print(v[i]);
+		}
+		
+		
+		
+		
+	}	
+	}
+	
+
